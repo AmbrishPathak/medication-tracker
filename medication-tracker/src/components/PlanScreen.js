@@ -31,33 +31,28 @@ function PlanScreen({ schedule, setSchedule, onReset }) {
       <ProgressBar percentage={progressPercent} />
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {schedule.map(dose => (
-          <Card key={dose.id} variant="outlined" sx={{ mb: 1.5 }}> {/* Add margin bottom */}
-            <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 1.5, '&:last-child': { pb: 1.5 } }}> {/* Adjust padding */}
-               <Typography variant="body1" sx={{ textDecoration: dose.taken ? 'line-through' : 'none', opacity: dose.taken ? 0.6 : 1 }}>
-                Day {dose.day} - Dose {dose.doseNumber} <Typography variant="caption" display="block">({dose.date})</Typography>
-              </Typography>
-              <FormControlLabel
-                 control={<Switch checked={dose.taken} onChange={() => handleToggleDose(dose.id)} />}
-                 label={dose.taken ? "Taken" : "Take"} // Optional label change
-                 labelPlacement="start" // Place label before switch
-              />
-              {/* Alternative Button:
-              <Button
-                size="small"
-                variant={dose.taken ? "outlined" : "contained"}
-                onClick={() => handleToggleDose(dose.id)}
-                color={dose.taken ? "secondary" : "primary"}
-              >
-                {dose.taken ? 'Undo' : 'Taken'}
-              </Button>
-              */}
+          <Card key={dose.id} variant="outlined" sx={{
+            mb: 1.5, // Margin bottom
+            // Use theme colors explicitly if needed
+            // backgroundColor: dose.taken ? 'grey.50' : 'background.paper'
+            borderColor: 'divider' // Use theme's divider color for border
+            }}>
+            <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 1.5, '&:last-child': { pb: 1.5 } }}>
+                <Typography variant="body1" sx={{ textDecoration: dose.taken ? 'line-through' : 'none', opacity: dose.taken ? 0.6 : 1, color: 'text.primary' }}>
+                Day {dose.day} - Dose {dose.doseNumber} <Typography variant="caption" display="block" color="text.secondary">({dose.date})</Typography>
+                </Typography>
+                <FormControlLabel
+                    control={<Switch checked={dose.taken} onChange={() => handleToggleDose(dose.id)} color="primary" />} // Use primary theme color
+                    label={dose.taken ? "Taken" : "Take"}
+                    labelPlacement="start"
+                />
             </CardContent>
-          </Card>
+        </Card>
         ))}
       </List>
-       <Button onClick={onReset} variant="outlined" color="error" sx={{mt: 2}}>
-         Reset Plan
-       </Button>
+      <Button onClick={onReset} variant="outlined" color="secondary" sx={{mt: 2}}>
+    Reset Plan
+</Button>
     </Box>
   );
 }

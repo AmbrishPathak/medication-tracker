@@ -36,12 +36,19 @@ function QuoteDisplay() {
 
   return (
     // Use Paper component for elevation and background
-    <Paper elevation={1} sx={{ p: 2, my: 2, bgcolor: 'grey.100', borderLeft: '4px solid', borderColor: 'primary.main' }}>
-      <Typography variant="body1" component="p" sx={{ fontStyle: 'italic' }}>
-         <FormatQuoteIcon sx={{ verticalAlign: 'bottom', mr: 0.5, fontSize: '1.1rem' }}/> {/* Optional Icon */}
-         {quote}
-      </Typography>
-    </Paper>
+    // Inside QuoteDisplay component...
+ <Paper elevation={0} sx={{
+    p: 2,
+    my: 2,
+    bgcolor: '#fff9e6', // Example: Light yellow background for quotes
+    borderLeft: '4px solid',
+    borderColor: 'primary.main' // Use theme's primary color
+    }}>
+ <Typography variant="body1" component="p" sx={{ fontStyle: 'italic', color: 'text.secondary' }}> {/* Use theme text color */}
+    <FormatQuoteIcon sx={{ verticalAlign: 'bottom', mr: 0.5, fontSize: '1.1rem', color: 'primary.main' }}/>
+    {quote}
+ </Typography>
+</Paper>
   );
 }
 
