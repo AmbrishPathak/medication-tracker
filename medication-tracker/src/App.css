@@ -1,0 +1,61 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+select, button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.schedule-list {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dose-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dose-item.taken {
+  background-color: #e0ffe0; /* Light green when taken */
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.dose-item button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.dose-item.taken button {
+    background-color: #ffdddd; /* Light red for undo button */
+}
+
+
+.quote-display {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-left: 5px solid #ccc;
+  font-style: italic;
+}
